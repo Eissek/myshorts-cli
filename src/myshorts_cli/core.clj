@@ -8,23 +8,27 @@
   (println "Hello, World!")
   (println "hi"))
 
-(defn enter-shortcut
+ (defn mymy
   []
-  (println "Enter Shortcut:")
-  (let [shortcut (read-line)]
-    (if (empty? shortcut)
-      `
-      (do (println "You have not entered a shortcut")
-          (recur))
-      (do (println shortcut)))
-    ;;(println shortcut)
-    (println "Enter Shortcut Description:")
-    (let [desc (read-line)]
-      (str desc)
-      (println "Enter tags:")
+  (println "Enter:")
+   (let [shortcut
+         (loop [x (read-line)]
+           (if (empty? x)
+             (do (println "Enter shortcut")
+                     (recur (read-line)))
+             (str x)))]
+    (println "Enter shortcut Description")
+    (let [desc
+          (loop [x (read-line)]
+            (if (empty? x)
+              (do
+                (println "Enter a shortcut description ")
+                (recur (read-line)))
+              (str x)))]
+      (println "Enter tags(Optional):")
       (let [tags (read-line)]
         (if (empty? tags)
-          (println "No tags added" )
-          (str/split tags #"\s"))
+              (println "No tags entered.")
+              (println tags))
         (str "Added " shortcut " " desc)))))
 
