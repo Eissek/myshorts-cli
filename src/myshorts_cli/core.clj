@@ -12,7 +12,12 @@
   []
   (println "Enter Shortcut:")
   (let [shortcut (read-line)]
-    (println shortcut)
+    (if (empty? shortcut)
+      `
+      (do (println "You have not entered a shortcut")
+          (recur))
+      (do (println shortcut)))
+    ;;(println shortcut)
     (println "Enter Shortcut Description:")
     (let [desc (read-line)]
       (str desc)
