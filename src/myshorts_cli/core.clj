@@ -1,5 +1,6 @@
 (ns myshorts-cli.core
-  (:require [clojure.string :as str])
+  (:require [clojure.string :as str]
+            [cheshire.core :refer :all])
   (:gen-class))
 
 (defn -main
@@ -8,7 +9,11 @@
   (println "Hello, World!")
   (println "hi"))
 
- (defn mymy
+(defn gen-uuid
+  []
+  (java.util.UUID/randomUUID))
+
+ (defn add-shortcut
   []
   (println "Enter:")
    (let [shortcut
@@ -30,5 +35,15 @@
         (if (empty? tags)
               (println "No tags entered.")
               (println tags))
-        (str "Added " shortcut " " desc)))))
+        (str "Added " shortcut ", " desc
+             " id: " (gen-uuid))))))
 
+
+(defn load-shortcuts
+  [filename])
+
+(defn write-shortcuts
+  [args])
+
+(defn search-shortcuts
+  [])
