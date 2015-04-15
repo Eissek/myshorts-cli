@@ -22,6 +22,12 @@
 
 (def saved-file "shortcuts.json")
 
+(defn list-shortcuts
+  []
+  (when (.exists (as-file saved-file))
+    (println "Reading file")
+    (print-table [:short :desc :tags] (parse-string (slurp saved-file) true))))
+
 (defn store-shortcut
   [args]
   (if (.exists (as-file saved-file))
@@ -61,14 +67,16 @@
               (println "No tags entered.")
               (println tags))
         (store-shortcut (hash-map
+                         :desc desc
                          :id (gen-uuid)
                          :short shortcut
-                         :tags tags)))))
+                         :tags tags))))))
 
 
-(defn list-shortcuts
-  [])
+;; (defn list-shortcuts
+;;   []
+;;   (str (not (nil? (read-shortcuts-file)))))
 
 
 (defn search-shortcuts
-  []))
+  [])
