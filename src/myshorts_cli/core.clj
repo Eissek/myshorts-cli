@@ -77,6 +77,12 @@
 ;;   []
 ;;   (str (not (nil? (read-shortcuts-file)))))
 
+(defn read-shortcuts-file
+  []
+  (parse-string (slurp saved-file) true))
 
 (defn search-shortcuts
-  [])
+  [tag]
+  (print-table [:short :desc :tags]
+               (filter #(.contains (:tags %) tag)
+                       (read-shortcuts-file))))
