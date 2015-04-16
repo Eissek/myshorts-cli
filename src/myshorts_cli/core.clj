@@ -86,3 +86,23 @@
   (print-table [:short :desc :tags]
                (filter #(.contains (:tags %) tag)
                        (read-shortcuts-file))))
+
+(defn delete-shortcut
+  [args]
+  (let [shorts (read-shortcuts-file)]
+    (if (empty?
+         (filter (comp #{args} :short)
+                 shorts))
+      (println "Shortcut not found")
+      (do
+        (let [updated-shorts
+              (filter
+               #(not= (:short %) args)
+               shorts)]
+          (spit saved-file
+                (generate-string updated-shorts
+                                 {:pretty true}))
+          (println updated-shorts))
+        (println "Shortcut deleted")))))
+
+

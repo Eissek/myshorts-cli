@@ -1,17 +1,13 @@
 [ {
   "tags" : "emacs linux",
-  "short" : "c-x o",
-  "desc" : "change buffer",
-  "id" : "1e6af952-3fd0-4ff8-8441-3bf71a5a5264"
+  "short" : "c-x f",
+  "desc" : "Find file",
+  "id" : "ea426295-e7b1-4c6f-a7a7-3ab1919046e2"
 }, {
   "tags" : "emacs linux",
   "short" : "c-x c",
   "desc" : "close emacs",
   "id" : "227a8b0b-facd-4951-979b-badca2ee61b1"
-}, {
-  "tags" : "ajsa",
-  "short" : "jsajasj",
-  "id" : "f282c6e0-6b3f-4046-be4b-d79e07c602d2"
 }, {
   "tags" : "asasa",
   "short" : "ajsajh",
