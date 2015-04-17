@@ -1,4 +1,9 @@
 [ {
+  "tags" : [ "womp wow" ],
+  "short" : "test2",
+  "desc" : "description",
+  "id" : "846a9dae-5acc-4c8c-a224-6222f054f79a"
+}, {
   "tags" : [ "Emacs" ],
   "short" : "C-x s",
   "desc" : "Save",

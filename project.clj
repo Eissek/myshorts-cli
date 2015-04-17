@@ -8,4 +8,5 @@
                  [org.clojure/tools.cli "0.3.1"]]
   :main ^:skip-aot myshorts-cli.core
   :target-path "target/%s"
-  :profiles {:uberjar {:aot :all}})
+  :profiles {:uberjar {:aot :all}}
+  :bin {:name "myshorts"})

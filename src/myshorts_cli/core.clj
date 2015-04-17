@@ -134,7 +134,7 @@
       (:add-shortcut options)
       (add-shortcut (first arguments)
                     (second arguments)
-                    (take 2 arguments))
+                    (drop 2 arguments))
       (:delete options)
       (delete-shortcut (first arguments))
       (:search options) (search-shortcuts (first arguments))
