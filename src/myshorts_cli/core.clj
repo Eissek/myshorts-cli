@@ -2,13 +2,11 @@
   (:require [clojure.string :as str]
             [cheshire.core :refer :all]
             [clojure.java.io :refer :all]
-            [clojure.pprint :refer [print-table]])
+            [clojure.pprint :refer [print-table]]
+            [clojure.tools.cli :refer [parse-opts]])
   (:gen-class))
 
-(defn -main
-  "I don't do a whole lot ... yet."
-  [& args]
-  (println "HEY HAPPY"))
+
 
 (defn gen-uuid
   []
@@ -71,14 +69,14 @@
                           :id (gen-uuid)
                           :short shortcut
                           :tags tags))))))
- ([shortcut desc & tags]
+ ([shortcut desc tags]
   (store-shortcut (hash-map
                    :desc desc
                    :id (gen-uuid)
                    :short shortcut
                    :tags (if (empty? tags)
-                           (str " ")
-                          (str tags))))))
+                            " "
+                          tags)))))
 
 
 (defn create
@@ -120,3 +118,25 @@
         (println "Shortcut deleted")))))
 
 
+
+(def cli-options
+  [["-h" "--help" "Print HELP"]
+   ["-a" "--add-shortcut" "Add short [shortcut] [Description] [Tags]"]
+   ["-d" "--delete" "Delete shortcut [shortcut]"]
+   ["-s" "--search" "Search for shortcuts [tag]"]
+   ["-l" "--list" "List all shortcuts"]])
+
+(defn -main
+  [& args]
+  (let [{:keys [options arguments]} (parse-opts args cli-options)]
+    (cond
+      (:help options) (println options)
+      (:add-shortcut options)
+      (add-shortcut (first arguments)
+                    (second arguments)
+                    (take 2 arguments))
+      (:delete options)
+      (delete-shortcut (first arguments))
+      (:search options) (search-shortcuts (first arguments))
+      (:list options) (list-shortcuts)))
+  )

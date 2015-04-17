@@ -1,15 +1,25 @@
 [ {
+  "tags" : [ "Emacs" ],
+  "short" : "C-x s",
+  "desc" : "Save",
+  "id" : "702deec8-a61c-4047-bec9-43609901cf44"
+}, {
+  "tags" : "(\"Emacs Clojure\")",
+  "short" : "C-c C-k",
+  "desc" : "Compile code",
+  "id" : "09a255cd-7d1f-4270-b70e-97afe333519e"
+}, {
   "tags" : "(\"emacs\")",
   "short" : "C-x tab",
   "desc" : "Indent selecition",
   "id" : "4cd10f9c-c43a-4b72-8134-7783be113a0c"
 }, {
-  "tags" : " ",
+  "tags" : "asa",
   "short" : "C-x C-b",
   "desc" : "List buffers",
   "id" : "21e711d8-35d0-4ae8-bfe3-89a9fb39bbab"
 }, {
-  "tags" : null,
+  "tags" : "ss",
   "short" : "C-x b",
   "desc" : "list buffers",
   "id" : "685457fa-feb6-4b2d-b049-91f4cff8dc7c"
@@ -28,8 +38,4 @@
   "short" : "c-x c",
   "desc" : "close emacs",
   "id" : "227a8b0b-facd-4951-979b-badca2ee61b1"
-}, {
-  "tags" : "asasa",
-  "short" : "ajsajh",
-  "id" : "7fb9feb4-f43e-4d59-b908-c6f0448b07dd"
 } ]
